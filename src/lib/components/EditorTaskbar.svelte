@@ -1,6 +1,8 @@
 <script lang="ts">
-	import { DropdownMenu } from 'bits-ui'
+	import { DropdownMenu, Dialog } from 'bits-ui'
 	import { twJoin } from 'tailwind-merge'
+
+	let dialogOpen = false
 </script>
 
 <nav class="flex flex-row gap-4 items-center h-[5vh] p-4 text-white">
@@ -25,7 +27,43 @@
 			</DropdownMenu.Item>
 		</DropdownMenu.Content>
 	</DropdownMenu.Root>
-	<div>Edit</div>
+	<button on:click={() => dialogOpen = true}>Edit</button>
 	<div>Selection</div>
 	<div>View</div>
 </nav>
+
+<Dialog.Root bind:open={dialogOpen}>
+	<Dialog.Trigger />
+	<Dialog.Portal>
+		<Dialog.Overlay class="fixed inset-0 z-50 bg-black/90" />
+		<Dialog.Content class={twJoin(
+			"fixed left-[50%] top-[50%] z-50 w-full max-w-[35%] p-8",
+			"translate-x-[-50%] translate-y-[-50%]",
+			"bg-zinc-900 flex flex-col gap-4",
+			"rounded-lg"
+		)}>
+			<Dialog.Title class="text-white text-2xl font-semibold font-sans">Add Node</Dialog.Title>
+			<Dialog.Description class="flex flex-col gap-2 text-white">
+				Add nodes to the canvas.
+				<div class="grid grid-cols-2 gap-2">
+					<div class="flex flex-col bg-zinc-800 rounded-lg p-4 text-white text-sm border-2 border-zinc-800 hover:border-blue-700 transition-colors">
+						<span class="font-mono">OscillatorNode</span>
+						<span class="text-xs">A periodic waveform, such as a sine wave</span>
+					</div>
+					<div class="flex flex-col bg-zinc-800 rounded-lg p-4 text-white text-sm border-2 border-zinc-800 hover:border-blue-700 transition-colors">
+						<span class="font-mono">Envelope</span>
+						<span class="text-xs">an ADSR envelope generator</span>
+					</div>
+					<div class="flex flex-col bg-zinc-800 rounded-lg p-4 text-white text-sm border-2 border-zinc-800 hover:border-blue-700 transition-colors">
+						<span class="font-mono">Chorus</span>
+						<span class="text-xs">a stereo chorus effect composed of a left and right delay with an LFO applied to the delayTime of each channel</span>
+					</div>
+					<div class="flex flex-col bg-zinc-800 rounded-lg p-4 text-white text-sm border-2 border-zinc-800 hover:border-blue-700 transition-colors">
+						<span class="font-mono">Reverb</span>
+						<span class="text-xs">Simple convolution created with decaying noise</span>
+					</div>
+				</div>
+			</Dialog.Description>
+		</Dialog.Content>
+	</Dialog.Portal>
+</Dialog.Root>
