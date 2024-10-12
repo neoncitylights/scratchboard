@@ -20,6 +20,14 @@ export default tseslint.config(
 	...tseslint.configs.stylistic,
 	...svelte.configs['flat/recommended'],
 	{
+		languageOptions: {
+			globals: {
+				...globals.browser,
+				...globals.node,
+			},
+		},
+	},
+	{
 		files: [
 			'ambient.d.ts',
 			'non-ambient.d.ts',
@@ -34,10 +42,6 @@ export default tseslint.config(
 			'../tests/**/*.svelte',
 		],
 		languageOptions: {
-			globals: {
-				...globals.browser,
-				...globals.node,
-			},
 			parserOptions: {
 				projectService: true,
 				tsconfigRootDir: import.meta.dirname,

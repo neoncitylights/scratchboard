@@ -1,5 +1,5 @@
 {
-	"name": "svelte-app",
+	"name": "hackuta-2024",
 	"type": "module",
 	"version": "0.0.1",
 	"private": true,
@@ -32,6 +32,7 @@
 		"eslint": "^9.12.0",
 		"eslint-plugin-svelte": "^2.44.0",
 		"globals": "^15.10.0",
+		"mongoose": "^8.7.1",
 		"postcss": "^8.4.47",
 		"svelte": "4.2.19",
 		"svelte-check": "^4.0.4",
@@ -45,8 +46,10 @@
 		"wavesurfer.js": "^7.8.6"
 	},
 	"dependencies": {
+		"@auth/sveltekit": "^1.7.0",
 		"@fontsource/geist-mono": "^5.1.0",
 		"@fontsource/geist-sans": "^5.1.0",
+		"mongodb": "^6.9.0",
 		"pattern.css": "^1.0.0"
 	}
 }

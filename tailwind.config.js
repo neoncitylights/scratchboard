@@ -5,6 +5,10 @@ export default {
 	],
 	theme: {
 		extend: {},
+		fontFamily: {
+			sans: ['Geist Sans', 'sans-serif'],
+			mono: ['Geist Mono', 'monospace'],
+		},
 	},
 	plugins: [],
 }
