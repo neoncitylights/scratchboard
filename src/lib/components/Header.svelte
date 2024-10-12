@@ -7,23 +7,23 @@
   <div class="signedInStatus">
     <div class="nojs-show loaded">
       {#if $page.data.session}
-        <span class="signedInText">
+        <span>
           {$page.data.session.user?.email ?? $page.data.session.user?.name}
         </span>
         <SignOut>
-          <div slot="submitButton" class="buttonPrimary">Sign out</div>
+          <div slot="submitButton">Sign out</div>
         </SignOut>
       {:else}
-        <span class="notSignedInText">You are not signed in</span>
+        <span>You are not signed in</span>
         <SignIn>
-          <div slot="submitButton" class="buttonPrimary">Sign in</div>
+          <div>Sign in</div>
         </SignIn>
       {/if}
     </div>
   </div>
   <nav>
     <ul class="navItems">
-      <li class="navItem"><a href="/">Home</a></li>
+      <li class="navItem"><a href="/editor">Editor</a></li>
     </ul>
   </nav>
 </header>
