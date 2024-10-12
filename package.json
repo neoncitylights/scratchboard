@@ -25,6 +25,7 @@
 		"@types/eslint": "^9.6.1",
 		"@types/eslint__js": "^8.42.3",
 		"@types/node": "^22.7.5",
+		"@xyflow/svelte": "^0.1.21",
 		"autoprefixer": "^10.4.20",
 		"bits-ui": "^0.21.16",
 		"cva": "npm:class-variance-authority@^0.7.0",
