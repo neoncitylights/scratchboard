@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { DropdownMenu, Dialog } from 'bits-ui'
+	import { DropdownMenu, Dialog, RadioGroup } from 'bits-ui'
 	import { twJoin } from 'tailwind-merge'
+    import NodeChoice from './NodeChoice.svelte';
 
 	let dialogOpen = false
 </script>
@@ -45,62 +46,14 @@
 			<Dialog.Title class="text-white text-2xl font-semibold font-sans">Add Node</Dialog.Title>
 			<Dialog.Description class="flex flex-col gap-2 text-white">
 				Add nodes to the canvas.
-				<div class="grid grid-cols-2 gap-2">
-					<div class={twJoin(
-						"flex flex-col p-4",
-						"bg-zinc-800 text-white text-sm rounded-lg",
-						"border-2 border-zinc-800 hover:border-blue-700 hover:bg-blue-900 transition-colors",
-						"cursor-pointer"
-					)}>
-						<span class="font-mono">OscillatorNode</span>
-						<span class="text-xs">A periodic waveform, such as a sine wave</span>
-					</div>
-					<div class={twJoin(
-						"flex flex-col p-4",
-						"bg-zinc-800 text-white text-sm rounded-lg",
-						"border-2 border-zinc-800 hover:border-blue-700 hover:bg-blue-900 transition-colors",
-						"cursor-pointer"
-					)}>
-						<span class="font-mono">Envelope</span>
-						<span class="text-xs">an ADSR envelope generator</span>
-					</div>
-					<div class={twJoin(
-						"flex flex-col p-4",
-						"bg-zinc-800 text-white text-sm rounded-lg",
-						"border-2 border-zinc-800 hover:border-blue-700 hover:bg-blue-900 transition-colors",
-						"cursor-pointer"
-					)}>
-						<span class="font-mono">Chorus</span>
-						<span class="text-xs">a stereo chorus effect composed of a left and right delay with an LFO (low frequency oscillator)</span>
-					</div>
-					<div class={twJoin(
-						"flex flex-col p-4",
-						"bg-zinc-800 text-white text-sm rounded-lg",
-						"border-2 border-zinc-800 hover:border-blue-700 hover:bg-blue-900 transition-colors",
-						"cursor-pointer"
-					)}>
-						<span class="font-mono">Reverb</span>
-						<span class="text-xs">Simple convolution created with decaying noise</span>
-					</div>
-					<div class={twJoin(
-						"flex flex-col p-4",
-						"bg-zinc-800 text-white text-sm rounded-lg",
-						"border-2 border-zinc-800 hover:border-blue-700 hover:bg-blue-900 transition-colors",
-						"cursor-pointer"
-					)}>
-						<span class="font-mono">Vibrato</span>
-						<span class="text-xs">composed of a delay and an LFO (low frequency oscillator)</span>
-					</div>
-					<div class={twJoin(
-						"flex flex-col p-4",
-						"bg-zinc-800 text-white text-sm rounded-lg",
-						"border-2 border-zinc-800 hover:border-blue-700 hover:bg-blue-900 transition-colors",
-						"cursor-pointer"
-					)}>
-						<span class="font-mono">BitCrusher</span>
-						<span class="text-xs">down-samples the incoming signal to a different bit depth</span>
-					</div>
-				</div>
+				<RadioGroup.Root class="grid grid-cols-2 gap-2 auto-rows-[1fr]">
+					<NodeChoice kind='oscillator' title="Oscillator" desc="A periodic waveform, such as a sine wave" />
+					<NodeChoice kind='envelope' title="Envelope" desc="an ADSR envelope generator" />
+					<NodeChoice kind='chorus' title="Chorus" desc="a stereo chorus effect composed of a left and right delay with an LFO (low frequency oscillator)" />
+					<NodeChoice kind='reverb' title="Reverb" desc="Simple convolution created with decaying noise" />
+					<NodeChoice kind='vibrato' title="Vibrato" desc="composed of a delay and an LFO (low frequency oscillator)" />
+					<NodeChoice kind='bitcrusher' title="BitCrusher" desc="down-samples the incoming signal to a different bit depth" />
+				</RadioGroup.Root>
 			</Dialog.Description>
 		</Dialog.Content>
 	</Dialog.Portal>
