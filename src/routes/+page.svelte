@@ -1,2 +1,11 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div class="h-screen flex flex-col bg-slate-900">
+	<nav class="flex flex-row gap-4 items-center h-[5vh] p-4 text-white">
+		<div>File</div>
+		<div>Edit</div>
+		<div>Selection</div>
+		<div>View</div>
+	</nav>
+	<main class=" flex-1 p-4 pattern-dots-md text-slate-700">
+		<div class="text-white"></div>
+	</main>
+</div>
