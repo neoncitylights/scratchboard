@@ -19,7 +19,7 @@
 	]
 </script>
 
-<AudioNode title="OscillatorNode">
+<AudioNode title="Oscillator">
 	<AudioNodeLabel>Wave Shape</AudioNodeLabel>
 	<select bind:value={$waveShape}>
 		{#each options as option}

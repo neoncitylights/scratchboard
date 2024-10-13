@@ -29,16 +29,6 @@
 
 	const nodes = writable<Node[]>([
 		getNode({
-			type: 'input',
-			position: { x: 0, y: 0 }, // required
-			data: { label: 'hey' }, // required
-		}),
-		getNode({
-			type: 'input',
-			position: { x: 100, y: 100 },
-			data: { label: 'world' },
-		}),
-		getNode({
 			type: 'oscillator',
 			position: { x: 200, y: 200 },
 			data: { waveShape: 'triangle' },

@@ -12,7 +12,7 @@
 	const release = writable(data.release)
 </script>
 
-<AudioNode title="EnvelopeNode">
+<AudioNode title="Envelope">
 	<AudioNodeLabel>Attack</AudioNodeLabel>
 	<input type="range" bind:value={$attack} min="0" max="100" />
 	<AudioNodeLabel>Decay</AudioNodeLabel>

@@ -7,14 +7,12 @@
 	type $$Props = NodeProps
 	export let data: $$Props['data']
 	const bits = writable(data.decay)
-	// Idk if we need this idk what it does but tonejs says we just need bits
-	// const context = writable(data.preDelay)
-	// const wet = writable(data.preDelay)
+	const wet = writable(data.wet)
 </script>
 
 <AudioNode title="Bit Crusher">
 	<AudioNodeLabel>bits</AudioNodeLabel>
 	<input type="range" bind:value={$bits} min="0" max="100" />
-	<!-- <AudioNodeLabel>wet</AudioNodeLabel>
-	<input type="range" bind:value={$wet} min="0" max="100" /> -->
+	<AudioNodeLabel>Wetness</AudioNodeLabel>
+	<input type="range" bind:value={$wet} min="0" max="100" />
 </AudioNode>
