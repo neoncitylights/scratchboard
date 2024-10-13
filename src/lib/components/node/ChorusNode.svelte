@@ -12,11 +12,10 @@
 </script>
 
 <AudioNode title="Chorus">
-	<AudioNodeLabel>Attack</AudioNodeLabel>
+	<AudioNodeLabel>Frequency</AudioNodeLabel>
 	<input type="range" bind:value={$frequency} min="0" max="100" />
-	<AudioNodeLabel>Decay</AudioNodeLabel>
+	<AudioNodeLabel>Delay Time</AudioNodeLabel>
 	<input type="range" bind:value={$delayTime} min="0" max="100" />
-	<AudioNodeLabel>Sustain</AudioNodeLabel>
+	<AudioNodeLabel>Depth</AudioNodeLabel>
 	<input type="range" bind:value={$depth} min="0" max="100" />
-	<AudioNodeLabel>Release</AudioNodeLabel>
 </AudioNode>
