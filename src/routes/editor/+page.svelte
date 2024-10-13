@@ -13,50 +13,47 @@
 		reverb: ReverbNode,
 	}
 
+	let nodeId = 0;
+	function getNode(options: Omit<Node, 'id'>): Node {
+		nodeId += 1;
+		return {
+			...options,
+			dragHandle: '.custom-drag-handle',
+			id: nodeId.toString(),
+		}
+	}
+
 	const nodes = writable<Node[]>([
-		{
+		getNode({
 			type: 'input',
-			id: '1', // required and needs to be a string
 			position: { x: 0, y: 0 }, // required
 			data: { label: 'hey' }, // required
-			dragHandle: '.custom-drag-handle',
-		},
-		{
+		}),
+		getNode({
 			type: 'input',
-			id: '2',
 			position: { x: 100, y: 100 },
 			data: { label: 'world' },
-			dragHandle: '.custom-drag-handle',
-		},
-		{
+		}),
+		getNode({
 			type: 'oscillator',
-			id: '3',
 			position: { x: 200, y: 200 },
 			data: { waveShape: 'triangle' },
-			dragHandle: '.custom-drag-handle',
-		},
-		{
+		}),
+		getNode({
 			type: 'envelope',
-			id: '4',
 			position: { x: 550, y: 200 },
 			data: { attack: 0.1, decay: 0.2, sustain: 0.5, release: 0.8 },
-			dragHandle: '.custom-drag-handle',
-		},
-		{
+		}),
+		getNode({
 			type: 'chorus',
-			id: '5',
 			position: { x: 550, y: 200 },
 			data: { frequency: 0.1, delayTime: 0.2, depth: 0.5 },
-			dragHandle: '.custom-drag-handle',
-		},
-		{
+		}),
+		getNode({
 			type: 'reverb',
-			id: '6',
-			position: { x: 550, y: 200 },
-			data: { decay: 0.1, preDelay: 0.2 },
-			dragHandle: '.custom-drag-handle',
-		}
-
+			position: { x: 900, y: 200 },
+			data: { decay: 0.5, preDelay: 0.5 },
+		}),
 	])
 
 	const edges = writable([])
