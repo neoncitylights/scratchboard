@@ -53,7 +53,7 @@
 		}),
 		getNode({
 			type: 'chorus',
-			position: { x: 1150, y: 200 },
+			position: { x: 1250, y: 200 },
 			data: { frequency: 0.1, delayTime: 0.2, depth: 0.5 },
 		}),
 	])
