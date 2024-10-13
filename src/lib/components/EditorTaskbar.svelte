@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { DropdownMenu, Dialog, RadioGroup } from 'bits-ui'
+	import { DropdownMenu, Dialog, RadioGroup, Toggle } from 'bits-ui'
 	import { twJoin } from 'tailwind-merge'
+	import { createEventDispatcher } from 'svelte'
 	import NodeChoice from './NodeChoice.svelte'
 	import {
 		IconBoltFilled,
@@ -10,9 +11,17 @@
 		IconWaveSine,
 		IconWaveSquare,
 		IconX,
+		IconPlayerPlay,
+		IconPlayerPlayFilled,
 	} from '@tabler/icons-svelte'
 
 	let dialogOpen = false
+	const dispatch = createEventDispatcher();
+	
+	function handlePlayButtonClick()
+	{
+		dispatch('triggerPlay')
+	}
 </script>
 
 <nav class="flex flex-row gap-4 items-center h-[5vh] p-4 text-white">
@@ -40,6 +49,9 @@
 	<button on:click={() => dialogOpen = true}>Edit</button>
 	<div>Selection</div>
 	<div>View</div>
+	<button on:click={handlePlayButtonClick}>
+		<IconPlayerPlay size={20} />
+	</button>
 </nav>
 
 <Dialog.Root bind:open={dialogOpen}>

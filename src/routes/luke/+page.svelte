@@ -6,7 +6,9 @@
 
 	let doFeedback = false
 	let doReverb = false
-    let slideamount = 2;
+    //let slideamount = 2;
+    let doSlide = true
+    let noteLength = .75;
 	// const synth = new Tone.Synth().toDestination();
 
 	function FortniteFunction(): void {
@@ -26,9 +28,14 @@
 
         
         
-		synth.triggerAttack('C3', now);
-        synth.frequency.linearRampToValueAtTime("C7", now+1);
-        synth.triggerRelease(now +.75);
+		synth.triggerAttack('C4', now);
+
+        if (doSlide)
+        {
+            synth.frequency.linearRampToValueAtTime("C3", now+1);
+
+        }
+        synth.triggerRelease(now + noteLength);
 	}
 </script>
 

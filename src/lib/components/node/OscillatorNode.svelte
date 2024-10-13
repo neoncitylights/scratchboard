@@ -2,14 +2,17 @@
 	import { type NodeProps } from '@xyflow/svelte'
 	import { writable } from 'svelte/store'
 	import AudioNode from './AudioNode.svelte'
-	import AudioNodeLabel from './AudioNodeLabel.svelte';
+	import AudioNodeLabel from './AudioNodeLabel.svelte'
+	import * as Tone from 'tone'
 
 	type WaveShape = 'sine' | 'square' | 'sawtooth' | 'triangle'
 	type $$Props = NodeProps
 	export let data: $$Props['data']
-	const waveShape = writable(data.waveShape)
-	const pitch = writable(data.pitch)
-	const octave = writable(data.pitch)
+
+	const waveShape = writable(data.waveShape || 'sine')
+	const pitch = writable(data.pitch || 0)
+	const octave = writable(data.pitch || 0)
+
 
 	const options: { value: WaveShape, label: string }[] = [
 		{ value: 'sine', label: 'Sine' },
@@ -19,7 +22,7 @@
 	]
 </script>
 
-<AudioNode title="Oscillator">
+<AudioNode title="Tone">
 	<AudioNodeLabel>Wave Shape</AudioNodeLabel>
 	<select bind:value={$waveShape}>
 		{#each options as option}
