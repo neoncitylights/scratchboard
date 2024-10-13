@@ -10,7 +10,7 @@
 	const preDelay = writable(data.preDelay)
 </script>
 
-<AudioNode title="EnvelopeNode">
+<AudioNode title="ReverbNode">
 	<AudioNodeLabel>Decay</AudioNodeLabel>
 	<input type="range" bind:value={$decay} min="0" max="100" />
 	<AudioNodeLabel>Pre-delay</AudioNodeLabel>
