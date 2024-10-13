@@ -41,7 +41,22 @@
 			position: { x: 550, y: 200 },
 			data: { attack: 0.1, decay: 0.2, sustain: 0.5, release: 0.8 },
 			dragHandle: '.custom-drag-handle',
+		},
+		{
+			type: 'chorus',
+			id: '5',
+			position: { x: 550, y: 200 },
+			data: { frequency: 0.1, delayTime: 0.2, depth: 0.5 },
+			dragHandle: '.custom-drag-handle',
+		},
+		{
+			type: 'reverb',
+			id: '6',
+			position: { x: 550, y: 200 },
+			data: { decay: 0.1, preDelay: 0.2 },
+			dragHandle: '.custom-drag-handle',
 		}
+
 	])
 
 	const edges = writable([])
