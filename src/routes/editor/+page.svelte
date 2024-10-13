@@ -1,18 +1,41 @@
 <script lang="ts">
 	import EditorTaskbar from '$lib/components/EditorTaskbar.svelte'
-	import { SvelteFlow, Background, Controls, type ColorMode } from '@xyflow/svelte'
+	import OscillatorNode from '$lib/components/node/OscillatorNode.svelte'
+	import { SvelteFlow, Background, Controls, type Node } from '@xyflow/svelte'
 	import { writable } from 'svelte/store'
-	import '@xyflow/svelte/dist/base.css'
+	import '@xyflow/svelte/dist/style.css'
 
-	const nodes = writable([])
+	const nodeTypes = {
+		oscillator: OscillatorNode,
+	}
+
+	const nodes = writable<Node[]>([
+		{
+			type: 'input',
+			id: '1', // required and needs to be a string
+			position: { x: 0, y: 0 }, // required
+			data: { label: 'hey' }, // required
+		},
+		{
+			type: 'input',
+			id: '2',
+			position: { x: 100, y: 100 },
+			data: { label: 'world' },
+		},
+		{
+			type: 'oscillator',
+			id: '3',
+			position: { x: 200, y: 200 },
+			data: { waveShape: 'triangle' },
+		},
+	])
+
 	const edges = writable([])
-	const colorMode: ColorMode = 'dark'
-
 </script>
 <div class="h-screen flex flex-col bg-zinc-900 font-sans">
 	<EditorTaskbar />
-	<main class="flex-1 p-4">
-		<SvelteFlow {nodes} {edges} {colorMode}>
+	<main class="flex-1 p-4 patterns-dot-md text-zinc-800">
+		<SvelteFlow {nodes} {edges} {nodeTypes} colorMode='dark'>
 			<Background />
 			<Controls />
 		</SvelteFlow>

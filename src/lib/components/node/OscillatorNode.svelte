@@ -1,45 +1,36 @@
 <script lang="ts">
-import { Handle, Position, type NodeProps } from '@xyflow/svelte';
-import { writable } from 'svelte/store';
+	import { IconInfoCircle } from '@tabler/icons-svelte'
+	import { type NodeProps } from '@xyflow/svelte'
+	import { writable } from 'svelte/store'
 
-type $$Props = NodeProps;
+	type WaveShape = 'sine' | 'square' | 'sawtooth' | 'triangle'
+	type $$Props = NodeProps
+	export let data: $$Props['data']
+	const waveShape = writable(data.waveShape)
 
-export let data: $$Props['data'];
-export let isConnectable: $$Props['isConnectable'];
-const color = writable(data.color)
+	const options: { value: WaveShape, label: string }[] = [
+		{ value: 'sine', label: 'Sine' },
+		{ value: 'square', label: 'Square' },
+		{ value: 'sawtooth', label: 'Sawtooth' },
+		{ value: 'triangle', label: 'Triangle' },
+	]
 </script>
 
-<Handle type="target" position={Position.Left} style="background: #555;" {isConnectable} />
-<div>OscillatorNode</div>
-<input
-class="nodrag"
-type="color"
-on:input={(event) => {
-    $color = event.currentTarget.value;
-}}
-value={$color}
-/>
-<Handle
-type="source"
-position={Position.Right}
-id="a"
-style="top: 10px; background: #555;"
-{isConnectable}
-/>
-<Handle
-type="source"
-position={Position.Right}
-id="b"
-style="bottom: 10px; top: auto; background: #555;"
-{isConnectable}
-/>
-
-<style>
-:global(.svelte-flow__node-selectorNode) {
-    font-size: 12px;
-    background: #eee;
-    border: 1px solid #555;
-    border-radius: 5px;
-    text-align: center;
-}
-</style>
+<div class="shadow-md rounded-md bg-zinc-900 flex flex-col w-[200px]">
+	<header class="bg-red-700 text-white p-2 rounded-t-md flex flex-row justify-between items-center">
+		OscillatorNode
+		<IconInfoCircle size={20} />
+	</header>
+	<section class="p-2">
+		<div class="flex flex-col">
+			<span class="text-white">Wave Shape</span>
+			<select bind:value={$waveShape}>
+				{#each options as option}
+					<option value={option.value}>
+						{option.label}
+					</option>
+				{/each}
+			</select>
+		</div>
+	</section>
+</div>

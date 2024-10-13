@@ -47,10 +47,10 @@
 	<Dialog.Portal>
 		<Dialog.Overlay class="fixed inset-0 z-50 bg-black/80" />
 		<Dialog.Content class={twJoin(
-			"fixed left-[50%] top-[50%] z-50 w-full max-w-[35%] p-8",
-			"translate-x-[-50%] translate-y-[-50%]",
-			"bg-zinc-900 flex flex-col gap-4",
-			"rounded-lg"
+			'fixed left-[50%] top-[50%] z-50 w-full max-w-[35%] p-8',
+			'translate-x-[-50%] translate-y-[-50%]',
+			'bg-zinc-900 flex flex-col gap-4',
+			'rounded-lg',
 		)}>
 			<Dialog.Title class="text-white text-2xl font-semibold font-sans flex justify-between">
 				Add Node
@@ -61,22 +61,40 @@
 			<Dialog.Description class="flex flex-col gap-2 text-white">
 				Add nodes to the canvas.
 				<RadioGroup.Root class="grid grid-cols-2 gap-2 auto-rows-[1fr]">
-					<NodeChoice kind='oscillator' title="Oscillator" desc="A periodic waveform, such as a sine wave">
+					<NodeChoice
+						kind='oscillator'
+						title="Oscillator"
+						desc="A periodic waveform, such as a sine wave" on:click={() => 'test'}>
 						<IconWaveSquare size={24} />
 					</NodeChoice>
-					<NodeChoice kind='envelope' title="Envelope" desc="an ADSR envelope generator">
+					<NodeChoice
+						kind='envelope'
+						title="Envelope"
+						desc="an ADSR envelope generator">
 						<IconWaveSine size={24} />
 					</NodeChoice>
-					<NodeChoice kind='chorus' title="Chorus" desc="a stereo chorus effect composed of a left and right delay with an LFO (low frequency oscillator)">
+					<NodeChoice
+						kind='chorus'
+						title="Chorus"
+						desc="a stereo chorus effect composed of a left and right delay with an LFO (low frequency oscillator)">
 						<IconUsers size={24} />
 					</NodeChoice>
-					<NodeChoice kind='reverb' title="Reverb" desc="Simple convolution created with decaying noise">
+					<NodeChoice
+						kind='reverb'
+						title="Reverb"
+						desc="Simple convolution created with decaying noise">
 						<IconBroadcast size={24} />
 					</NodeChoice>
-					<NodeChoice kind='vibrato' title="Vibrato" desc="composed of a delay and an LFO (low frequency oscillator)">
+					<NodeChoice
+						kind='vibrato'
+						title="Vibrato"
+						desc="composed of a delay and an LFO (low frequency oscillator)">
 						<IconWaveSawTool size={24} />
 					</NodeChoice>
-					<NodeChoice kind='bitcrusher' title="BitCrusher" desc="down-samples the incoming signal to a different bit depth">
+					<NodeChoice
+						kind='bitcrusher'
+						title="BitCrusher"
+						desc="down-samples the incoming signal to a different bit depth">
 						<IconBoltFilled size={24} />
 					</NodeChoice>
 				</RadioGroup.Root>
