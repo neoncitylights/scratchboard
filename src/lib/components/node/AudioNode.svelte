@@ -4,8 +4,8 @@
 	export let title: string
 </script>
 
-<div class="shadow-2xl shadow-black rounded-lg bg-zinc-900 flex flex-col w-[300px] border-2 border-black">
-	<header class="custom-drag-handle bg-black text-white p-2 rounded-t-md flex flex-row justify-between items-center">
+<div class="shadow-2xl shadow-black rounded-lg bg-zinc-900 flex flex-col w-[300px]">
+	<header class="custom-drag-handle bg-blue-700 text-white p-2 rounded-t-md flex flex-row justify-between items-center">
 		{title}
 		<IconInfoCircle size={20} />
 	</header>
