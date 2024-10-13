@@ -7,12 +7,14 @@
 	import EnvelopeNode from '$lib/components/node/EnvelopeNode.svelte'
 	import ReverbNode from '$lib/components/node/ReverbNode.svelte'
 	import ChorusNode from '$lib/components/node/ChorusNode.svelte';
+	import BitCrusherNode from '$lib/components/node/BitCrusherNode.svelte'
 
 	const nodeTypes = {
 		oscillator: OscillatorNode,
 		envelope: EnvelopeNode,
 		reverb: ReverbNode,
 		chorus: ChorusNode,
+		bitcrusher: BitCrusherNode,
 	}
 
 	let nodeId = 0;
@@ -55,6 +57,11 @@
 			type: 'chorus',
 			position: { x: 1250, y: 200 },
 			data: { frequency: 0.1, delayTime: 0.2, depth: 0.5 },
+		}),
+		getNode({
+			type: 'bitcrusher',
+			position: { x: 1250, y: 0 },
+			data: { bits: 0.5 },
 		}),
 	])
 
