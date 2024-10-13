@@ -8,6 +8,8 @@
 	type $$Props = NodeProps
 	export let data: $$Props['data']
 	const waveShape = writable(data.waveShape)
+	const pitch = writable(data.pitch)
+	const octave = writable(data.pitch)
 
 	const options: { value: WaveShape, label: string }[] = [
 		{ value: 'sine', label: 'Sine' },
@@ -26,4 +28,8 @@
 			</option>
 		{/each}
 	</select>
+	<AudioNodeLabel>Pitch</AudioNodeLabel>
+	<input type="range" bind:value={$pitch} min="-6" max="6" step="1"/>
+	<AudioNodeLabel>Octave</AudioNodeLabel>
+	<input type="range" bind:value={$octave} min="-2" max="2" step="1"/>
 </AudioNode>
