@@ -7,7 +7,7 @@
 	type $$Props = NodeProps
 	export let data: $$Props['data']
 	const frequency = writable(data.frequency)
-	const milliseconds = writable(data.milliseconds)
+	const delayTime = writable(data.delayTime)
 	const depth = writable(data.depth)
 </script>
 
@@ -15,7 +15,7 @@
 	<AudioNodeLabel>Attack</AudioNodeLabel>
 	<input type="range" bind:value={$frequency} min="0" max="100" />
 	<AudioNodeLabel>Decay</AudioNodeLabel>
-	<input type="range" bind:value={$milliseconds} min="0" max="100" />
+	<input type="range" bind:value={$delayTime} min="0" max="100" />
 	<AudioNodeLabel>Sustain</AudioNodeLabel>
 	<input type="range" bind:value={$depth} min="0" max="100" />
 	<AudioNodeLabel>Release</AudioNodeLabel>

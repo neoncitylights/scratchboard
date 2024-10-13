@@ -4,11 +4,13 @@
 	import '@xyflow/svelte/dist/style.css'
 	import EditorTaskbar from '$lib/components/EditorTaskbar.svelte'
 	import OscillatorNode from '$lib/components/node/OscillatorNode.svelte'
-    import EnvelopeNode from '$lib/components/node/EnvelopeNode.svelte'
+	import EnvelopeNode from '$lib/components/node/EnvelopeNode.svelte'
+	import ReverbNode from '$lib/components/node/ReverbNode.svelte';
 
 	const nodeTypes = {
 		oscillator: OscillatorNode,
 		envelope: EnvelopeNode,
+		reverb: ReverbNode,
 	}
 
 	const nodes = writable<Node[]>([
@@ -36,15 +38,8 @@
 		{
 			type: 'envelope',
 			id: '4',
-			position: { x: 700, y: 200 },
+			position: { x: 550, y: 200 },
 			data: { attack: 0.1, decay: 0.2, sustain: 0.5, release: 0.8 },
-			dragHandle: '.custom-drag-handle',
-		},
-		{
-			type: 'chorus',
-			id: '6',
-			position: { x: 900, y: 200 },
-			data: { frequency: 0.1, delayTime: 0.4, depth: 0.3},
 			dragHandle: '.custom-drag-handle',
 		}
 	])
