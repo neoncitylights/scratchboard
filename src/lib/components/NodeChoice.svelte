@@ -10,11 +10,16 @@
     id={kind}
     value={kind}
     class={twJoin(
-        "flex flex-col p-4 items-start",
+        "flex flex-row items-start p-4 gap-3",
         "text-white text-sm rounded-lg",
         "border-2 border-zinc-800",
         "hover:border-blue-700 hover:bg-blue-900 transition-colors"
     )}>
-    <span class="font-mono">{title}</span>
-    <span class="text-sm text-left">{desc}</span>
+    <div class="size-6">
+        <slot />
+    </div>
+    <span class="flex flex-col items-start gap-1">
+        <span class="font-mono">{title}</span>
+        <span class="text-xs text-left">{desc}</span>
+    </span>
 </RadioGroup.Item>

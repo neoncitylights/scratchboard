@@ -49,6 +49,7 @@
 		"@auth/sveltekit": "^1.7.0",
 		"@fontsource/geist-mono": "^5.1.0",
 		"@fontsource/geist-sans": "^5.1.0",
+		"@tabler/icons-svelte": "^3.19.0",
 		"mongodb": "^6.9.0",
 		"pattern.css": "^1.0.0"
 	}
