@@ -14,11 +14,11 @@
 
 <AudioNode title="EnvelopeNode">
 	<AudioNodeLabel>Attack</AudioNodeLabel>
-	<input type="number" bind:value={$attack} min="0" />
+	<input type="range" bind:value={$attack} min="0" max="100" />
 	<AudioNodeLabel>Decay</AudioNodeLabel>
-	<input type="number" bind:value={$decay} min="0" />
+	<input type="range" bind:value={$decay} min="0" max="100" />
 	<AudioNodeLabel>Sustain</AudioNodeLabel>
-	<input type="number" bind:value={$sustain} />
+	<input type="range" bind:value={$sustain} min="0" max="100" />
 	<AudioNodeLabel>Release</AudioNodeLabel>
-	<input type="number" bind:value={$release} min="0" />
+	<input type="range" bind:value={$release} min="0" max="100" />
 </AudioNode>

@@ -17,24 +17,28 @@
 			id: '1', // required and needs to be a string
 			position: { x: 0, y: 0 }, // required
 			data: { label: 'hey' }, // required
+			dragHandle: '.custom-drag-handle',
 		},
 		{
 			type: 'input',
 			id: '2',
 			position: { x: 100, y: 100 },
 			data: { label: 'world' },
+			dragHandle: '.custom-drag-handle',
 		},
 		{
 			type: 'oscillator',
 			id: '3',
 			position: { x: 200, y: 200 },
 			data: { waveShape: 'triangle' },
+			dragHandle: '.custom-drag-handle',
 		},
 		{
 			type: 'envelope',
 			id: '4',
 			position: { x: 700, y: 200 },
 			data: { attack: 0.1, decay: 0.2, sustain: 0.5, release: 0.8 },
+			dragHandle: '.custom-drag-handle',
 		}
 	])
 
