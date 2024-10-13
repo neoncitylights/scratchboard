@@ -4,16 +4,18 @@
 
 	let synth: Tone.Synth
 
-	let doFeedback = true
-	let doReverb = true
+	let doFeedback = false
+	let doReverb = false
+    let slideamount = 2;
 	// const synth = new Tone.Synth().toDestination();
 
 	function FortniteFunction(): void {
 		synth = new Tone.Synth().toDestination()
+        const now = Tone.now();
 
 		// if delay node
 		if (doFeedback) {
-			const feedbackDelay = new Tone.FeedbackDelay('8n.', 0.8).toDestination()
+			const feedbackDelay = new Tone.FeedbackDelay('32n.', 0.3).toDestination()
 			synth.connect(feedbackDelay)
 		}
 
@@ -22,7 +24,11 @@
 			synth.connect(reverb)
 		}
 
-		synth.triggerAttackRelease('C4', '8n')
+        
+        
+		synth.triggerAttack('C3', now);
+        synth.frequency.linearRampToValueAtTime("C7", now+1);
+        synth.triggerRelease(now +.75);
 	}
 </script>
 
