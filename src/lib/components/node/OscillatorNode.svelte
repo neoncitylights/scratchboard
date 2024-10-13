@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { IconInfoCircle } from '@tabler/icons-svelte'
 	import { type NodeProps } from '@xyflow/svelte'
 	import { writable } from 'svelte/store'
+	import AudioNode from './AudioNode.svelte'
+	import AudioNodeLabel from './AudioNodeLabel.svelte';
 
 	type WaveShape = 'sine' | 'square' | 'sawtooth' | 'triangle'
 	type $$Props = NodeProps
@@ -16,19 +17,13 @@
 	]
 </script>
 
-<div class="shadow-2xl rounded-md bg-zinc-900 flex flex-col w-[300px]">
-	<header class="bg-black text-white p-2 rounded-t-md flex flex-row justify-between items-center">
-		OscillatorNode
-		<IconInfoCircle size={20} />
-	</header>
-	<section class="grid grid-cols-2 p-2">
-		<span class="text-white">Wave Shape</span>
-		<select bind:value={$waveShape}>
-			{#each options as option}
-				<option value={option.value}>
-					{option.label}
-				</option>
-			{/each}
-		</select>
-	</section>
-</div>
+<AudioNode title="OscillatorNode">
+	<AudioNodeLabel>Wave Shape</AudioNodeLabel>
+	<select bind:value={$waveShape}>
+		{#each options as option}
+			<option value={option.value}>
+				{option.label}
+			</option>
+		{/each}
+	</select>
+</AudioNode>
