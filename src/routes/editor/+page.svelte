@@ -39,6 +39,13 @@
 			position: { x: 700, y: 200 },
 			data: { attack: 0.1, decay: 0.2, sustain: 0.5, release: 0.8 },
 			dragHandle: '.custom-drag-handle',
+		},
+		{
+			type: 'chorus',
+			id: '6',
+			position: { x: 900, y: 200 },
+			data: { frequency: 0.1, delayTime: 0.4, depth: 0.3},
+			dragHandle: '.custom-drag-handle',
 		}
 	])
 
