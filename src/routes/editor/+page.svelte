@@ -5,12 +5,14 @@
 	import EditorTaskbar from '$lib/components/EditorTaskbar.svelte'
 	import OscillatorNode from '$lib/components/node/OscillatorNode.svelte'
 	import EnvelopeNode from '$lib/components/node/EnvelopeNode.svelte'
-	import ReverbNode from '$lib/components/node/ReverbNode.svelte';
+	import ReverbNode from '$lib/components/node/ReverbNode.svelte'
+	import ChorusNode from '$lib/components/node/ChorusNode.svelte';
 
 	const nodeTypes = {
 		oscillator: OscillatorNode,
 		envelope: EnvelopeNode,
 		reverb: ReverbNode,
+		chorus: ChorusNode,
 	}
 
 	let nodeId = 0;
@@ -45,14 +47,14 @@
 			data: { attack: 0.1, decay: 0.2, sustain: 0.5, release: 0.8 },
 		}),
 		getNode({
-			type: 'chorus',
-			position: { x: 550, y: 200 },
-			data: { frequency: 0.1, delayTime: 0.2, depth: 0.5 },
-		}),
-		getNode({
 			type: 'reverb',
 			position: { x: 900, y: 200 },
 			data: { decay: 0.5, preDelay: 0.5 },
+		}),
+		getNode({
+			type: 'chorus',
+			position: { x: 1150, y: 200 },
+			data: { frequency: 0.1, delayTime: 0.2, depth: 0.5 },
 		}),
 	])
 
